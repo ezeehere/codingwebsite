@@ -1,118 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Metal Mania';
-    background: #0a0a0a;
+body {
+   font-family: 'Fredoka';
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
 }
 
-.form-fill{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
+.form-fill {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
-.left-part{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 20px;
+.left-part {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.fill-up h2{
-    font-weight: 600;
-    color: #5CE1E6;
-    font-size: 40px;
-    margin-bottom: 5px;
+.fill-up h2 {
+  font-weight: 600;
+  color: #5CE1E6;
+  font-size: 40px;
+  margin-bottom: 5px;
 }
 
-.fill-up hr{
-    border: none;
-    width: 120px;
-    height: 5px;
-    background: #C1FF72;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.fill-up hr {
+  border: none;
+  width: 120px;
+  height: 5px;
+  background: #C1FF72;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.name,.email, .phone, .department , .year, .linkedin, .github {
-    width: 400px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    padding-left: 25px;
-    font-weight: 500;
-    color: #666;
-
+input,
+textarea {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  font-weight: 500;
+  color: #666;
+  font-family: inherit;
 }
 
-.skills{
-    width: 400px;
-    height: 100px;
-    padding-top: 15px;
-    border-radius: 10px;
-
+textarea {
+  height: 100px;
+  padding-top: 15px;
 }
 
-.name,.email, .phone, .department , .year, .linkedin, .github :focus{
-    border: 2px solid #C1FF72;
+input:focus,
+textarea:focus {
+  border: 2px solid #C1FF72;
 }
 
-.name,.email, .phone, .department , .year, .linkedin, .github ::placeholder{
-    color: #a9a9a9;
+input::placeholder,
+textarea::placeholder {
+  color: #a9a9a9;
 }
 
 .left-part button {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 34px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #C1FF72, #5CE1E6);
+  color: #0a0a0a;
+  box-shadow: 0 6px 20px rgba(92, 225, 230, 0.4);
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-part button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(92, 225, 230, 0.5);
+}
+
+.left-part button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(92, 225, 230, 0.3);
+}
+
+
+.submit img {
+  height: 15px;
+}
+
+.right-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-part img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 800px) {
+  .form-fill {
+    flex-direction: column;
     align-items: center;
-    padding: 15px 30px;
-    font-size: 16px;
-    gap: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: linear-gradient(90deg, #C1FF72, #5CE1E6);
+    justify-content: flex-start;
+    padding: 30px 10px;
+  }
+
+  .right-part {
+    order: -1; /* Logo/image goes to top */
+    margin-bottom: 20px;
+  }
+
+  .right-part img {
+    width: 250px;
+  }
+
+  .left-part {
+    align-items: center;
+    width: 100%;
+  }
+
+  input,
+  textarea {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .fill-up h2 {
+    font-size: 32px;
+    text-align: center;
+  }
 }
 
-.submit img{
-    height: 15px;
+/* Even smaller devices (iPhone SE, older Androids) */
+@media (max-width: 400px) {
+  .fill-up h2 {
+    font-size: 26px;
+  }
 
+  .left-part button {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  input,
+  textarea {
+    font-size: 14px;
+  }
 }
- .right-part img{
-    width:500px ;
 
- }
-
- @media (max-width: 800px) {
-    .form-fill{
-        width: 80vw;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-part{
-        align-items: center;
-    }
-
-    .right-part img{
-        width: 300px;
-    }
-
-    .name,.email, .phone, .department , .year, .linkedin, .github {
-        width: 300px;
-    }
-    
- }
- 
- .input-error {
+.input-error {
   border: 2px solid red !important;
   outline: none;
 }
