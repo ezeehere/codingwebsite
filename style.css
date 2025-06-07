@@ -11,7 +11,10 @@ html, body {
     background-color: #0f0f0f;
     color: #fff;
     font-family: "Inter", sans-serif;
+    overflow-x: hidden;
 }
+
+
 
 img {
     position: relative;
@@ -93,7 +96,7 @@ overflow: hidden;
     position: relative;
     width: 100vw;
     height: 100svh;
-    padding: 1.5em;
+    padding: 0em;
 }
 
 .card-wrapper{
@@ -176,4 +179,53 @@ overflow: hidden;
         
     }
     
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.05rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .intro,
+  .outro {
+    padding: 1em;
+  }
+
+  .intro h1,
+  .outro h1 {
+    width: 100%;
+  }
+
+  .card-content .card-title {
+    padding: 0 1em;
+  }
+
+  .card-content .card-description {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 1em;
+    margin-bottom: 2em;
+  }
+
+  .card-marquee .marquee h1 {
+    font-size: 12vw;
+  }
+
+  .card-img {
+    border-radius: 100px;
+  }
+
+  .card-wrapper {
+    padding: 0em;
+  }
+
+  .char span {
+    font-size: 1.8rem;
+  }
 }

@@ -1,6 +1,3 @@
-import { gsap } from "./gsap";
-import { setupMarqueeAnimation } from "./marquee";
-
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -150,6 +147,32 @@ cards.forEach((card,index) =>{
     }
  });
 
- 
+ cards. forEach((card, index) => {
+    if (index ==0) return;
+
+    const cardDescription = card.querySelector(".card-description");
+    const cardTitleChars = card.querySelectorAll(".char span");
+
+    ScrollTrigger.create({
+        trigger: card,
+        start: "top top",
+        onEnter: () => animateContentIn(cardTitleChars , cardDescription),
+        onLeaveBack: () => animateContentOut(cardTitleChars, cardDescription),
+
+    })
+ })
+
+  const marqueeContent = document.querySelector('.marquee');
+  const marqueeWidth = marqueeContent.offsetWidth;
+
+  
+  marqueeContent.innerHTML += marqueeContent.innerHTML;
+
+  gsap.to(marqueeContent, {
+    x: -marqueeWidth,
+    duration: 18,           
+    ease: "linear",
+    repeat: -1,
+  });
     
 });

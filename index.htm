@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/SplitText.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  
 </head>
 <body>
     <section class ="intro">
@@ -90,6 +91,15 @@
     </section> 
     <section class="outro">
         <h1>JIST Coding Club</h1>
+        <br>
+        <button id="myButton" class="float-left submit-button" >Home</button>
+
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+                location.href = "form.htm";
+            };
+        </script>
+
     </section>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>    
     <script src="marquee.js"></script>
