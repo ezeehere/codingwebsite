@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateContentIn(titleChars, description) {
     gsap.to(titleChars, {
-      x: "0%",
+      x: 0,
+      opacity: 1,
       duration: 0.75,
-      ease: "power4.out",
-      stagger: 0.02
+      delay: 0,
+      ease: "power4.out"
     });
     gsap.to(description, {
       x: 0,

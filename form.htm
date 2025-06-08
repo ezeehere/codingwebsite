@@ -35,16 +35,28 @@
             <input type="number" id ="phone"placeholder="Phone Number" class="phone" required>
             <input type="text" id="department" placeholder="Department" class="department" required>
             <input type="number" id="year" placeholder="Year" class="year" required>
+            <input type="text" id="position" placeholder="Position applying for" class="position" required>
             <input type="text" id="linkedin" placeholder="LinkedIn Profile"class="linkedin" >
             <input type="text" id="github" placeholder="GitHub Profile" class="github">  
-            <textarea name="skills" id="skills" placeholder=" Your skills in any technical field" class="skills" required></textarea>
+            <textarea name="skills" id="skills" placeholder=" Your skills for applying in field" class="skills" required></textarea>
             <button type="submit" class="submit" id="submit">Submit Form <img src="assets/arrow_icon.png"> </button>
             
-
+            
         </form>
          <div class="right-part">
             <img src="LOGO 2.png" alt="">
         </div>
+           <div id="progress-bar" 
+                    style="width: 0%;
+                    height: 4px;
+                    background: linear-gradient(90deg, #C1FF72, #5CE1E6);
+                    transition: width 0.4s ease;
+                    margin-bottom: 10px;
+                    border-radius: 2px;
+                    ">
+                </div>
+                <div id="form-status" style="margin-bottom: 15px; font-weight: 600;"></div>
+            </div>
     </div>
     <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
@@ -84,11 +96,12 @@
                 statusBox.innerText = "";
 
             
-                 const name = document.getElementById("name").value.trim();
+                const name = document.getElementById("name").value.trim();
                 const email = document.getElementById("email").value.trim();
                 const phone = document.getElementById("phone").value.trim();
                 const department = document.getElementById("department").value.trim();
                 const year = document.getElementById("year").value.trim();
+                const position = document.getElementById("position").value.trim();
                 const linkedin = document.getElementById("linkedin").value.trim();
                 const github = document.getElementById("github").value.trim();
                 const skills = document.getElementById("skills").value.trim();
@@ -99,6 +112,7 @@
                 if (!phone) return showError("Phone number is required", "phone");
                 if (!department) return showError("Department is required", "department");
                 if (!year) return showError("Year is required", "year");
+                if (!position) return showError("Position is required", "position");
                 if (!skills) return showError("Please describe your technical skills", "skills");
 
 
@@ -109,6 +123,7 @@
                 phone,
                 department,
                 year,
+                position,
                 skills,
                 github,
                 linkedin,
@@ -141,7 +156,7 @@
                 setTimeout(() => {
                     statusBox.innerText = "";
                     if (fieldId) {
-                    document.getElementById(fieldId).style.border = ""; // remove red border after 5 sec
+                    document.getElementById(fieldId).style.border = "";
                     }
                 }, 5000);
             }

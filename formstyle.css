@@ -126,7 +126,6 @@ textarea::placeholder {
   height: auto;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 800px) {
   .form-fill {
     flex-direction: column;
@@ -136,7 +135,7 @@ textarea::placeholder {
   }
 
   .right-part {
-    order: -1; /* Logo/image goes to top */
+    order: -1;
     margin-bottom: 20px;
   }
 
@@ -161,7 +160,7 @@ textarea::placeholder {
   }
 }
 
-/* Even smaller devices (iPhone SE, older Androids) */
+
 @media (max-width: 400px) {
   .fill-up h2 {
     font-size: 26px;
