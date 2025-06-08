@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cairo');
 *{
     margin: 0;
     padding: 0;
@@ -9,9 +10,9 @@
 
 html, body {
     width: auto;
-    background-color: #9a8623;
+    background-color: #000000;
     color: #fff;
-    font-family: "Inter","Fredoka";
+    font-family: "Inter","Fredoka","Montserrat";
     overflow-x: hidden;
 }
 
@@ -36,15 +37,16 @@ h1 {
 }
 
 p {
-    font-size: 1.125rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 500;
     line-height: 1.25;
+    padding-bottom: 2em;
 }
 
 section{
     position: relative;
     width: auto;
-    background-color:#9a8623;
+    background-color:#060606;
     color: #fff;
 }
 
@@ -171,7 +173,7 @@ overflow: hidden;
 
 
 .type--A{
-  --line_color : #555555 ;
+  --line_color : #ffffff ;
   --back_color : #158291  ;
 }
 .button{
@@ -392,7 +394,76 @@ overflow: hidden;
   margin-bottom : 64px ;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+	background-color: #010;
+}
 
+.title {
+	font-family: "Cairo";
+	text-align: center;
+	color: #FFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	letter-spacing: 1px;
+	line-height:2
+}
+
+.hero-title {
+  width: 100%;
+  text-align: center;
+  margin-top: 0em;
+}
+
+h2 {
+  background-image: url(https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3M3FyZmN3Mng2M3pubDQ3b3F4Z3VqdjJybWJ4NTFxZ2IwNHZicDAzeCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/UE6s2yrNzpkDS/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-transform: uppercase;
+  font-size: 10vw; 
+  line-height: 0.75;
+  margin: 10px 0;
+}
+
+h2 .top,
+h2 .bottom {
+  display: block;
+}
+
+.white-mode {
+  text-decoration: none;
+  padding: 7px 10px;
+  background-color: #122;
+  border-radius: 3px;
+  color: #FFF;
+  transition: .35s ease-in-out;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font-family: "Montserrat";
+}
+
+.white-mode:hover {
+  background-color: #FFF;
+  color: #122;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 12vw;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 14vw;
+  }
+}
 
 
 @media (max-width: 900px) {
