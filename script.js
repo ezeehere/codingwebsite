@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.to(marqueeContent, {
         x: -marqueeWidth,
-        duration: 18,
+        duration: 10,
         ease: "linear",
         repeat: -1,
     });
