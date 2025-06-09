@@ -28,35 +28,35 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(cardImg, { scale: 1.5 });
 
     function animateContentIn(titleChars, description) {
-    gsap.to(titleChars, {
-      x: 0,
-      opacity: 1,
-      duration: 0.75,
-      delay: 0,
-      ease: "power4.out"
-    });
-    gsap.to(description, {
-      x: 0,
-      opacity: 1,
-      duration: 0.75,
-      delay: 0,
-      ease: "power4.out"
-    });
-  }
+        gsap.to(titleChars, {
+            x: 0,
+            opacity: 1,
+            duration: 0.75,
+            delay: 0,
+            ease: "power4.out"
+        });
+        gsap.to(description, {
+            x: 0,
+            opacity: 1,
+            duration: 0.75,
+            delay: 0,
+            ease: "power4.out"
+        });
+    }
 
-  function animateContentOut(titleChars, description) {
-    gsap.to(titleChars, {
-      x: "100%",
-      duration: 0.5,
-      ease: "power4.out"
-    });
-    gsap.to(description, {
-      x: "40px",
-      opacity: 0,
-      duration: 0.5,
-      ease: "power4.out"
-    });
-  }
+    function animateContentOut(titleChars, description) {
+        gsap.to(titleChars, {
+            x: "100%",
+            duration: 0.5,
+            ease: "power4.out"
+        });
+        gsap.to(description, {
+            x: "40px",
+            opacity: 0,
+            duration: 0.5,
+            ease: "power4.out"
+        });
+    }
 
     const marquee = introCard.querySelector(".card-marquee .marquee");
     const titleChars = introCard.querySelectorAll(".char");
@@ -87,93 +87,93 @@ document.addEventListener("DOMContentLoaded", () => {
                 gsap.set(marquee, { opacity: 0 });
             }
 
-             if (progress >= 1 && !introCard.contentRevealed) {
-        introCard.contentRevealed = true;
-        animateContentIn(titleChars, description);
-      }
+            if (progress >= 1 && !introCard.contentRevealed) {
+                introCard.contentRevealed = true;
+                animateContentIn(titleChars, description);
+            }
 
-      if (progress < 1 && introCard.contentRevealed) {
-        introCard.contentRevealed = false;
-        animateContentOut(titleChars, description);
-      }
+            if (progress < 1 && introCard.contentRevealed) {
+                introCard.contentRevealed = false;
+                animateContentOut(titleChars, description);
+            }
         },
     });
 
-cards.slice(1).forEach((card, index) => {
-    const isLastCard = index === cards.length - 1; 
-    ScrollTrigger.create({
-        trigger: card,
-        start: "top top",
-        end: isLastCard ? "+=100vh" : "top top",
-        endTrigger: isLastCard ? null : cards[cards.length - 1],
-        pin: true,
-        pinSpacing: isLastCard,
-    });
-});
-
-cards.forEach((card,index) =>{
-    if (index < cards.length -1){
-        const cardWrapper = card.querySelector (".card-wrapper");
-        ScrollTrigger.create({
-            trigger: cards [index + 1],
-            start: "top bottom",
-            end: "top top",
-            onUpdate: (self)=> {
-                const progress = self.progress;
-                gsap.set(cardImgWrapper,{
-                    scale: 1 - progress * 0.25,
-                    opacity: 1 - progress,
-                })
-            }
-        })
-    }
-})
-
-
-
- cards.forEach((card, index) =>{
-    if (index >0){
-        const cardImg = card.querySelector(".card-img img");
-        const imgContainer = card.querySelector(".card-img");
+    cards.slice(1).forEach((card, index) => {
+        const isLastCard = index === cards.length - 1;
         ScrollTrigger.create({
             trigger: card,
-            start: "top bottom",
-            end: "top top",
-            onUpdate: (self) => {
-                const progress =self.progress;
-                gsap.set (cardImg, {scale: 2-progress});
-                gsap.set(imgContainer ,{ borderRadius: 150 - progress  * 125 + "px"});
-            },
+            start: "top top",
+            end: isLastCard ? "+=100vh" : "top top",
+            endTrigger: isLastCard ? null : cards[cards.length - 1],
+            pin: true,
+            pinSpacing: isLastCard,
         });
-    }
- });
+    });
 
- cards. forEach((card, index) => {
-    if (index ==0) return;
-
-    const cardDescription = card.querySelector(".card-description");
-    const cardTitleChars = card.querySelectorAll(".char span");
-
-    ScrollTrigger.create({
-        trigger: card,
-        start: "top top",
-        onEnter: () => animateContentIn(cardTitleChars , cardDescription),
-        onLeaveBack: () => animateContentOut(cardTitleChars, cardDescription),
-
+    cards.forEach((card, index) => {
+        if (index < cards.length - 1) {
+            const cardWrapper = card.querySelector(".card-wrapper");
+            ScrollTrigger.create({
+                trigger: cards[index + 1],
+                start: "top bottom",
+                end: "top top",
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    gsap.set(cardImgWrapper, {
+                        scale: 1 - progress * 0.25,
+                        opacity: 1 - progress,
+                    })
+                }
+            })
+        }
     })
- })
 
-  const marqueeContent = document.querySelector('.marquee');
-  const marqueeWidth = marqueeContent.offsetWidth;
 
-  
-  marqueeContent.innerHTML += marqueeContent.innerHTML;
 
-  gsap.to(marqueeContent, {
-    x: -marqueeWidth,
-    duration: 18,           
-    ease: "linear",
-    repeat: -1,
-  });
-    
+    cards.forEach((card, index) => {
+        if (index > 0) {
+            const cardImg = card.querySelector(".card-img img");
+            const imgContainer = card.querySelector(".card-img");
+            ScrollTrigger.create({
+                trigger: card,
+                start: "top bottom",
+                end: "top top",
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    gsap.set(cardImg, { scale: 2 - progress });
+                    gsap.set(imgContainer, { borderRadius: 150 - progress * 125 + "px" });
+                },
+            });
+        }
+    });
+
+    cards.forEach((card, index) => {
+        if (index == 0) return;
+
+        const cardDescription = card.querySelector(".card-description");
+        const cardTitleChars = card.querySelectorAll(".char span");
+
+        ScrollTrigger.create({
+            trigger: card,
+            start: "top top",
+            onEnter: () => animateContentIn(cardTitleChars, cardDescription),
+            onLeaveBack: () => animateContentOut(cardTitleChars, cardDescription),
+
+        })
+    })
+
+    const marqueeContent = document.querySelector('.marquee');
+    const marqueeWidth = marqueeContent.offsetWidth;
+
+
+    marqueeContent.innerHTML += marqueeContent.innerHTML;
+
+    gsap.to(marqueeContent, {
+        x: -marqueeWidth,
+        duration: 18,
+        ease: "linear",
+        repeat: -1,
+    });
+
 });
